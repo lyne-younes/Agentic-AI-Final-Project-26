@@ -1,0 +1,488 @@
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.section-count {
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: var(--slate-bg);
+  color: var(--slate-fg);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.study-tools-section + .study-tools-section {
+  margin-top: 16px;
+}
+
+.study-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.study-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 72px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    transform 0.15s;
+}
+
+.study-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.study-row:active {
+  transform: translateY(1px);
+}
+
+.study-row-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.study-title {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.study-meta {
+  color: var(--text-muted);
+  font-size: 0.83rem;
+}
+
+/* Right-hand side: the quiz grade, or the flashcard count. */
+.study-grade {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.study-grade-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 8.5rem;
+  line-height: 1.35;
+}
+
+.study-grade-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.study-grade-detail {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+
+.study-pill {
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--slate-bg);
+  color: var(--slate-fg);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.study-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.5rem;
+  line-height: 1.2;
+}
+
+.study-count strong {
+  font-size: 1.25rem;
+}
+
+.study-count span {
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+}
+
+.study-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--accent-fg);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .study-row {
+    flex-wrap: wrap;
+  }
+
+  .study-row-text {
+    flex-basis: calc(100% - 60px);
+  }
+
+  .study-grade {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 54px;
+  }
+
+  .study-title {
+    white-space: normal;
+  }
+}
+
+/* ---------- Quiz taking ---------- */
+.quiz-question {
+  padding: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.quiz-question + .quiz-question {
+  margin-top: 0.9rem;
+}
+
+.quiz-question-text {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  border-color: var(--border-strong);
+}
+
+.quiz-option-selected {
+  border-color: var(--focus);
+  background: var(--teal-bg);
+}
+
+.quiz-option-correct {
+  border-color: var(--focus);
+  background: var(--teal-bg);
+}
+
+.quiz-option-incorrect {
+  border-color: var(--danger-solid);
+  background: var(--danger-bg);
+}
+
+.quiz-score-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+}
+
+.quiz-score {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quiz-score-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.quiz-score-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- Attempt history: every past attempt, each reopening its review ---------- */
+/* One row under the quiz title: [Your attempts] [+ New attempt] [#3 80%] [#2 60%] ... */
+.attempt-history-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.attempt-history-title {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.attempt-history {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 2px;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.attempt-history li {
+  flex: none;
+}
+
+.attempt-chip-new {
+  align-items: center;
+  color: var(--accent-fg);
+  font-weight: 600;
+}
+
+.attempt-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.attempt-chip:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.attempt-chip:active {
+  transform: translateY(1px);
+}
+
+.attempt-chip-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.attempt-chip-number,
+.attempt-chip-date {
+  color: var(--text-subtle);
+  font-size: 0.78rem;
+}
+
+/* ---------- Flashcard review ---------- */
+.flashcard-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 0 2rem;
+}
+
+.flashcard {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 32rem;
+  min-height: 16rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.flashcard-back {
+  background: var(--teal-bg);
+}
+
+.flashcard-hint {
+  color: var(--text-subtle);
+  font-size: 0.8rem;
+}
+
+.flashcard-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Quiz results: turning mistakes into the next step ---------- */
+.quiz-score-banner {
+  flex-wrap: wrap;
+}
+
+.quiz-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quiz-result-hint {
+  flex-basis: 100%;
+  color: var(--text-subtle);
+  font-size: 0.8rem;
+}
+
+.quiz-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+}
+
+.quiz-feedback-correct {
+  justify-content: flex-start;
+  background: var(--accent-soft);
+  color: var(--accent-fg);
+  font-weight: 600;
+}
+
+.quiz-feedback-wrong {
+  background: var(--danger-bg);
+  color: var(--text);
+}
+
+.quiz-feedback-wrong .btn {
+  color: var(--text);
+}
+
+/* ---------- Study help: explanations and flashcards made from this quiz's attempts ---------- */
+.study-help {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface));
+}
+
+.study-help-list {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 2px;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.study-help-list li {
+  flex: none;
+}
+
+.study-help-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+}
+
+.study-help-link svg {
+  color: var(--accent);
+}
+
+.study-help-link:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.study-help-link:active {
+  transform: translateY(1px);
+}
+
+.study-help-meta {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .attempt-history-section,
+  .study-help {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+}

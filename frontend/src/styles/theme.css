@@ -1,0 +1,138 @@
+/*
+ * Design tokens. Light is the default; [data-theme="dark"] is set by ThemeProvider.
+ */
+:root {
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --sidebar-width: 256px;
+  --chat-history-width: 260px;
+  --main-pad: 32px;
+  --topbar-height: 0px; /* the mobile top bar's height, when it shows */
+
+  --bg: #fafaf9;
+  --bg-subtle: #f5f5f4;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-hover: #f2f2f0;
+  --border: #e7e5e4;
+  --border-strong: #d6d3d1;
+  --text: #0c0a09;
+  --text-muted: #57534e;
+  --text-subtle: #8a8480;
+
+  --accent: #0b8563; /* 4.6:1 with white, so it can carry bubble text */
+  --accent-hover: #087253;
+  --accent-contrast: #ffffff;
+  --accent-soft: #e3f6ee;
+  --accent-soft-hover: #d3f0e4;
+  --accent-fg: #0a7a5a;
+
+  --primary-bg: #0b0c14;
+  --primary-bg-hover: #25272f;
+  --primary-text: #ffffff;
+  --primary-edge: #4a4d5c;
+  --focus: #14b88a;
+
+  --teal-bg: var(--accent-soft);
+  --teal-fg: var(--accent-fg);
+  --lime-bg: #eefbd5;
+  --lime-fg: #4d7c0f;
+  --sky-bg: #e0f2fe;
+  --sky-fg: #0369a1;
+  --rose-bg: #ffe4e8;
+  --rose-fg: #be123c;
+  --amber-bg: #fef3c7;
+  --amber-fg: #b45309;
+  --violet-bg: #ede9fe;
+  --violet-fg: #6d28d9;
+  --slate-bg: #eef0f3;
+  --slate-fg: #475467;
+  --danger-bg: #fef1f0;
+  --danger-fg: #c8281c;
+  --danger-solid: #d92d20;
+  --user-bubble-bg: var(--accent);
+  --user-bubble-fg: var(--accent-contrast);
+
+  /* Leaderboard medals; always paired with a rank number, never colour alone. */
+  --gold: #e3b341;
+  --silver: #b4bcc6;
+  --bronze: #cd8a4f;
+  --medal-ink: #1c1917;
+  /* Activity calendar: one hue (the accent), empty -> most active. */
+  --heat-0: #efeeec;
+
+  --shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --shadow-md: 0 10px 24px rgb(16 24 40 / 0.08);
+  --shadow-lg: 0 20px 48px rgb(16 24 40 / 0.18);
+  --scrim: rgb(11 12 20 / 0.45);
+  --skeleton: #eef0f3;
+  --skeleton-shine: #f8f9fa;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1222;
+  --bg-subtle: #0e1628;
+
+  --accent: #34d3a5;
+  --accent-hover: #5fe0ba;
+  --accent-contrast: #04231a;
+  --accent-soft: #0f3534;
+  --accent-soft-hover: #144341;
+  --accent-fg: #4be0b4;
+  --surface: #0f1729;
+  --surface-raised: #141d33;
+  --surface-hover: #18233b;
+  --border: #223050;
+  --border-strong: #33456c;
+  --text: #f3f5fa;
+  --text-muted: #a4adc3;
+  --text-subtle: #7581a0;
+
+  --primary-bg: #f3f5fa;
+  --primary-bg-hover: #ffffff;
+  --primary-text: #0b0c14;
+  --primary-edge: #8d97b0;
+  --focus: #34d3a5;
+
+  --teal-bg: var(--accent-soft);
+  --teal-fg: var(--accent-fg);
+  --lime-bg: #24361a;
+  --lime-fg: #bef264;
+  --sky-bg: #0d2e47;
+  --sky-fg: #7dd3fc;
+  --rose-bg: #3d1524;
+  --rose-fg: #fda4af;
+  --amber-bg: #3a2a0d;
+  --amber-fg: #fcd34d;
+  --violet-bg: #2a1f4d;
+  --violet-fg: #c4b5fd;
+  --slate-bg: #1c2740;
+  --slate-fg: #b2bcd2;
+  --danger-bg: #3b1519;
+  --danger-fg: #fda29b;
+  --danger-solid: #f04438;
+  --user-bubble-bg: var(--accent);
+  --user-bubble-fg: var(--accent-contrast);
+
+  --gold: #e8bf55;
+  --silver: #a9b3c1;
+  --bronze: #d49563;
+  --medal-ink: #0b0c14;
+  --heat-0: #17223a;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-md: 0 10px 24px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 24px 56px rgb(0 0 0 / 0.55);
+  --scrim: rgb(2 6 16 / 0.65);
+  --skeleton: #16213a;
+  --skeleton-shine: #1e2b48;
+
+  color-scheme: dark;
+}

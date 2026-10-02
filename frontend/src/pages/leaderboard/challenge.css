@@ -1,0 +1,75 @@
+/* The challenge picker: opened from the leaderboard and from My Library. */
+.challenge {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.challenge-reel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 96px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  text-align: center;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.challenge-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.challenge-course {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.challenge-reel-spinning .challenge-title,
+.challenge-reel-spinning .challenge-course {
+  filter: blur(0.6px);
+  opacity: 0.75;
+}
+
+.challenge-reel-landed {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  animation: land 0.35s ease;
+}
+
+@keyframes land {
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.challenge-reason {
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.challenge .course-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--course-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .challenge-reel-landed {
+    animation: none !important;
+  }
+}

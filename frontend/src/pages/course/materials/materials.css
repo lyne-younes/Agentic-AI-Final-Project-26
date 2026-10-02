@@ -1,0 +1,254 @@
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  margin-bottom: 0.15rem;
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.materials .filter-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Material rows (styled after the inspiration's activity list) ---------- */
+.material-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.material-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 72px;
+  padding: 0.5rem 0.9rem 0.5rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.material-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.material-row-main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+  padding: 0.35rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.material-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.material-title {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.material-meta {
+  color: var(--text-muted);
+  font-size: 0.83rem;
+}
+
+.material-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  max-width: 35%;
+}
+
+.material-row-side {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.material-row-chevron {
+  color: var(--text-subtle);
+}
+
+.indexing-failed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ---------- Upload ---------- */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2rem 1rem;
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  text-align: center;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+
+.dropzone-active {
+  border-color: var(--focus);
+  background: var(--teal-bg);
+}
+
+.file-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+
+.file-chip-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 0.88rem;
+}
+
+.note-textarea {
+  min-height: 16rem;
+}
+
+/* ---------- Drawer ---------- */
+.drawer-loading {
+  display: grid;
+  place-items: center;
+  padding: 4rem 0;
+  color: var(--text-subtle);
+}
+
+.drawer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.material-details > .drawer-section:first-child {
+  padding-top: 0.25rem;
+  border-top: 0;
+}
+
+.drawer-section h3 {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.drawer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.material-text {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.danger-action {
+  align-self: flex-start;
+  color: var(--danger-fg);
+}
+
+.danger-action:hover:not(:disabled) {
+  background: var(--danger-bg);
+  color: var(--danger-fg);
+}
+
+/* Narrow screens: title gets its own full-width line; tags and status wrap underneath it. */
+@media (max-width: 720px) {
+  .material-row {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    padding: 0.5rem 0.75rem 0.75rem 0.5rem;
+  }
+
+  .material-row-main {
+    flex-basis: 100%;
+  }
+
+  .material-tags {
+    flex: 1;
+    justify-content: flex-start;
+    max-width: none;
+    padding-left: 3.6rem;
+  }
+
+  .material-row-side {
+    margin-left: auto;
+  }
+
+  .material-row-chevron {
+    display: none;
+  }
+}

@@ -1,0 +1,320 @@
+.app-shell {
+  display: flex;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+/* ---------- Sidebar ---------- */
+/* Brand and nav stay put, the course list scrolls, the footer stays visible. */
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 24px;
+  width: var(--sidebar-width);
+  height: 100dvh;
+  padding: 16px 12px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-subtle);
+  transition:
+    margin-left 0.2s ease,
+    visibility 0.2s;
+}
+
+/* Hidden with the sidebar's own button (or Ctrl+B): slides out; the top bar brings it back. */
+.sidebar-hidden .sidebar {
+  margin-left: calc(-1 * var(--sidebar-width));
+  visibility: hidden;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sidebar-header .brand {
+  min-width: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.sidebar-nav,
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-section {
+  flex: 1;
+  min-height: 0;
+  margin: 0 -4px;
+  padding: 0 4px;
+  overflow-y: auto;
+}
+
+/* Top nav and course rows share one row: same height, icon slot, hover and active state. */
+.sidebar-link {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.sidebar-link:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.sidebar-link:active {
+  background: var(--border);
+}
+
+.sidebar-link.active {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 0 0 1px var(--border);
+}
+
+.nav-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-subtle);
+}
+
+.sidebar-link:hover .nav-icon {
+  color: var(--text-muted);
+}
+
+.sidebar-link.active .nav-icon {
+  color: var(--accent);
+}
+
+.sidebar-heading {
+  padding: 0 10px 6px;
+  color: var(--text-subtle);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sidebar-empty {
+  padding: 4px 10px;
+  color: var(--text-subtle);
+  font-size: 0.85rem;
+}
+
+.course-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.sidebar-footer {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.theme-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.theme-switcher .segmented-option {
+  padding: 6px 0;
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 2px;
+}
+
+.avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--rose-bg);
+  color: var(--rose-fg);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.user-meta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+/* ---------- Content area ---------- */
+.app-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Uses the available width up to 1280px, centred between the sidebar and the window's edge. */
+.app-main {
+  width: 100%;
+  max-width: calc(1280px + 2 * var(--main-pad));
+  margin: 0 auto;
+  padding: var(--main-pad);
+}
+
+/* Full-height pages (chat, planner) fill exactly what's left of the viewport. */
+.fill-viewport {
+  height: calc(100dvh - 2 * var(--main-pad) - var(--topbar-height));
+  min-height: 480px;
+}
+
+.app-topbar,
+.sidebar-scrim {
+  display: none;
+}
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.sidebar-hidden {
+  --topbar-height: 56px;
+}
+
+.sidebar-hidden .app-topbar {
+  display: flex;
+}
+
+/* ---------- Page primitives shared by every screen ---------- */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.page-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --main-pad: 16px;
+    --topbar-height: 56px;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 40;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar-open .sidebar {
+    transform: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar-open .sidebar-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: block;
+    background: var(--scrim);
+  }
+
+  .app-topbar {
+    display: flex;
+  }
+}

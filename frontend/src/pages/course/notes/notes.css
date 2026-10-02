@@ -1,0 +1,120 @@
+.notes-page {
+  gap: 16px;
+}
+
+/* ---------- Version bar: [picker ‹ ›]  position · date · badges  [action] ---------- */
+.version-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 8px 8px 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.version-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.version-icon {
+  color: var(--text-subtle);
+}
+
+.version-select {
+  height: 32px;
+  padding: 0 32px 0 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  /* A chevron drawn in the text colour, so it follows the theme. */
+  background:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%) calc(100% - 15px) 55% / 5px
+      5px no-repeat,
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%) calc(100% - 10px) 55% / 5px
+      5px no-repeat,
+    var(--surface);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 0.15s;
+}
+
+.version-select:hover:not(:disabled) {
+  border-color: var(--text-subtle);
+}
+
+.version-select:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.version-steps {
+  display: flex;
+  gap: 2px;
+}
+
+.version-meta {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.version-position {
+  font-weight: 600;
+}
+
+.version-actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+}
+
+.version-notice {
+  padding: 10px 14px;
+  border-left: 3px solid var(--amber-fg);
+  border-radius: var(--radius-sm);
+  background: var(--amber-bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+/* ---------- The summary itself ---------- */
+.notes-document {
+  padding: 24px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.notes-document > .markdown {
+  max-width: 72ch;
+}
+
+.notes-document-archived {
+  background: var(--bg-subtle);
+}
+
+.summary-textarea {
+  min-height: 24rem;
+}
+
+@media (max-width: 640px) {
+  .notes-document {
+    padding: 16px;
+  }
+
+  .version-meta {
+    flex-basis: 100%;
+    order: 3;
+  }
+}

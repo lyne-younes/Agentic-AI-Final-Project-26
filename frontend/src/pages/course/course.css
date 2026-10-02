@@ -1,0 +1,79 @@
+.course-page {
+  gap: 24px;
+}
+
+.course-top {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--text-subtle);
+  font-size: 0.85rem;
+}
+
+.breadcrumb a {
+  flex: none;
+  border-radius: 4px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* [icon] Title  badges ............ [menu], all on one row. */
+.course-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.course-title-row {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  min-width: 0;
+}
+
+.course-header .course-title {
+  min-width: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.course-description {
+  max-width: 48rem;
+  color: var(--text-muted);
+}
+
+.course-top .tabs {
+  margin-top: 4px;
+}
+
+/* On the Chat tab the page fills the viewport and the chat scrolls inside itself. */
+.course-page-chat {
+  gap: 16px;
+}
+
+.course-page-chat > .chat-layout {
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 767px) {
+  .course-header .course-title {
+    font-size: 1.6rem;
+  }
+}

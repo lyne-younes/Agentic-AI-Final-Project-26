@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Assistant</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a light/dark flash (see ThemeProvider).
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark =
+            saved === "dark" ||
+            (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
